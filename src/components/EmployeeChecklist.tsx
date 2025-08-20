@@ -31,7 +31,7 @@ const EmployeeChecklist: React.FC = () => {
 
   useEffect(() => {
     if (!id) return;
-    api.get(`/api/employee-checklists/${id}`)
+    api.get(`/employee-checklists/${id}`)
       .then(res => {
         setChecklist(res.data);
       })
@@ -76,7 +76,7 @@ const EmployeeChecklist: React.FC = () => {
     setError(null);
 
     try {
-      await api.put(`/api/employee-checklists/${checklist.id}`, {
+      await api.put(`/employee-checklists/${checklist.id}`, {
         status: checklist.status,
         items: checklist.items.map(item => ({
           id: item.id,

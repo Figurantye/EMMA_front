@@ -12,7 +12,7 @@ const Identificacao: React.FC = () => {
     useEffect(() => {
         api.get('/sanctum/csrf-cookie')
             .then(() => {
-                api.get('/api/google/session')
+                api.get('/google/session')
                     .then(res => setGoogleUser(res.data))
                     .catch(() => navigate('/')); // volta para home se não houver sessão
             })
@@ -24,7 +24,7 @@ const Identificacao: React.FC = () => {
         setLoading(true);
         try {
             await api.get('/sanctum/csrf-cookie');
-            await api.post('/api/auth/register/google', { role });
+            await api.post('/auth/register/google', { role });
             navigate('/dashboard');
         } catch (err) {
             console.error('Erro ao registrar:', err);

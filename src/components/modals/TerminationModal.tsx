@@ -23,7 +23,7 @@ const TerminationModal: React.FC<TerminationModalProps> = ({ isOpen, onClose, em
     const handleCalculate = async () => {
         try {
             setLoading(true);
-            const { data } = await api.post(`/api/employees/${employeeId}/calculate`, {
+            const { data } = await api.post(`/employees/${employeeId}/calculate`, {
                 termination_date: terminationDate,
                 termination_type: terminationType,
                 termination_reason: terminationReason,
@@ -41,7 +41,7 @@ const TerminationModal: React.FC<TerminationModalProps> = ({ isOpen, onClose, em
     const handleConfirm = async () => {
         try {
             setLoading(true);
-            const { data } = await api.post(`/api/employees/${employeeId}/calculate`, {
+            const { data } = await api.post(`/employees/${employeeId}/calculate`, {
                 termination_date: terminationDate,
                 termination_type: terminationType,
                 termination_reason: terminationReason,

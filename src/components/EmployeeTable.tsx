@@ -16,9 +16,9 @@ const EmployeeTable: React.FC = () => {
   const [searchTag, setSearchTag] = useState('');
 
   useEffect(() => {
-    api.get('/api/employees').then(res => setEmployees(res.data.data));
-    api.get('/api/departments').then(res => setDepartments(res.data.data));
-    api.get('/api/positions').then(res => setPositions(res.data.data));
+    api.get('/employees').then(res => setEmployees(res.data.data));
+    api.get('/departments').then(res => setDepartments(res.data.data));
+    api.get('/positions').then(res => setPositions(res.data.data));
   }, []);
 
   const filteredEmployees = useMemo(() => {

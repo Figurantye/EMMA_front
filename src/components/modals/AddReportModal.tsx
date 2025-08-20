@@ -14,7 +14,7 @@ export default function AddReportModal({ employeeId, onClose, onSuccess }: Props
 
     const handleSubmit = async () => {
         try {
-            await api.post(`/api/employees/${employeeId}/reports`, {
+            await api.post(`/employees/${employeeId}/reports`, {
                 employee_id: employeeId,
                 title,
                 content,

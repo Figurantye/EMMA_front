@@ -10,7 +10,7 @@ const ChecklistTemplatesList: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.get('/api/checklist-templates')
+    api.get('/checklist-templates')
       .then(response => setTemplates(response.data))
       .catch(error => console.error('Error fetching templates:', error))
       .finally(() => setLoading(false));
@@ -20,7 +20,7 @@ const ChecklistTemplatesList: React.FC = () => {
     if (!window.confirm('Are you sure you want to delete this template?')) return;
 
     try {
-      await api.delete(`/api/checklist-templates/${id}`);
+      await api.delete(`/checklist-templates/${id}`);
       setTemplates(prev => prev.filter(t => t.id !== id));
     } catch (error) {
       console.error('Error deleting template:', error);

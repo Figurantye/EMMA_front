@@ -20,7 +20,7 @@ export const fetchEmployeeDetails = async (id: number) => {
 
 
 export async function logoutUser() {
-  await api.post('/api/logout');
+  await api.post('/logout');
   localStorage.removeItem('token');
 }
 

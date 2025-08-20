@@ -17,7 +17,7 @@ export default function AddLeaveModal({ employeeId, onClose, onSuccess }: Props)
 
     const handleSubmit = async () => {
         try {
-            await api.post(`/api/employees/${employeeId}/leaves`, {
+            await api.post(`/employees/${employeeId}/leaves`, {
                 employee_id: employeeId,
                 type,
                 status,

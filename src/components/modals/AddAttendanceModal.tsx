@@ -14,7 +14,7 @@ export default function AddAttendanceModal({ employeeId, onClose, onSuccess }: P
 
     const handleSubmit = async () => {
         try {
-            await api.post(`/api/employees/${employeeId}/attendances`, {
+            await api.post(`/employees/${employeeId}/attendances`, {
                 employee_id: employeeId,
                 date,
                 status,

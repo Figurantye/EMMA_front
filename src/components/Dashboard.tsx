@@ -73,7 +73,7 @@ const Dashboard: React.FC = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    api.get('/api/dashboard')
+    api.get('/dashboard')
       .then((response) => {
         setStats(response.data.stats);
         setActivities(response.data.activities);

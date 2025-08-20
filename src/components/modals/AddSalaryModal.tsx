@@ -15,7 +15,7 @@ export default function AddSalaryModal({ employeeId, onClose, onSuccess }: Props
 
     const handleSubmit = async () => {
         try {
-            await api.post(`/api/employees/${employeeId}/salaries`, {
+            await api.post(`/employees/${employeeId}/salaries`, {
                 employee_id: employeeId,
                 amount,
                 start_date: startDate,

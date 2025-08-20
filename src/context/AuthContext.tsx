@@ -19,7 +19,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
         setAuthToken(token); // seta header Authorization
         try {
-            const response = await api.get('/api/user'); // agora exige token Bearer
+            const response = await api.get('/user'); // agora exige token Bearer
             setUser(response.data);
         } catch (error) {
             console.error('Erro ao buscar usuário com token:', error);
@@ -37,7 +37,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const logout = async () => {
         try {
-            await api.post('/api/logout'); // opcional, pode ser removido
+            await api.post('/logout'); // opcional, pode ser removido
         } catch { }
         localStorage.removeItem('token');
         setAuthToken(null);

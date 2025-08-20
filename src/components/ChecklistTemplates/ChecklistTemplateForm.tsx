@@ -16,7 +16,7 @@ const ChecklistTemplateForm: React.FC = () => {
 
   useEffect(() => {
     if (isEditMode) {
-      api.get(`/api/checklist-templates/${id}`)
+      api.get(`/checklist-templates/${id}`)
         .then(response => {
           const { title, description, items } = response.data;
           setFormData({
@@ -59,9 +59,9 @@ const ChecklistTemplateForm: React.FC = () => {
 
     try {
       if (isEditMode) {
-        await api.put(`/api/checklist-templates/${id}`, formData);
+        await api.put(`/checklist-templates/${id}`, formData);
       } else {
-        await api.post('/api/checklist-templates', formData);
+        await api.post('/checklist-templates', formData);
       }
       navigate('/checklist-templates');
     } catch (error) {

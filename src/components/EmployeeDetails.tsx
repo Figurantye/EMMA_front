@@ -37,7 +37,7 @@ const EmployeeDetails: React.FC = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        api.get('/api/checklist-templates').then((res) => setTemplates(res.data));
+        api.get('/checklist-templates').then((res) => setTemplates(res.data));
     }, []);
 
 
@@ -45,7 +45,7 @@ const EmployeeDetails: React.FC = () => {
     const handleAssignChecklist = () => {
         if (!selectedTemplateId || !id) return;
         api
-            .post(`/api/employees/${id}/checklists`, { checklist_template_id: selectedTemplateId, employee_id: id, })
+            .post(`/employees/${id}/checklists`, { checklist_template_id: selectedTemplateId, employee_id: id, })
             .then((res) => {
                 setChecklists((prev) => [...prev, res.data]);
                 setSelectedTemplateId('');
@@ -69,7 +69,7 @@ const EmployeeDetails: React.FC = () => {
 
 
     const openChecklistDetails = (checklistId: number) => {
-        api.get(`/api/employee-checklists/${checklistId}`)
+        api.get(`/employee-checklists/${checklistId}`)
             .then(res => {
                 setDetailedChecklist(res.data)
                 console.log("Checklist loaded:", res.data);
@@ -114,7 +114,7 @@ const EmployeeDetails: React.FC = () => {
                     : cl
             )
         );
-        api.patch(`/api/employee-checklists/${updatedChecklist.id}/items/${itemId}/toggle`).catch(console.error);
+        api.patch(`/employee-checklists/${updatedChecklist.id}/items/${itemId}/toggle`).catch(console.error);
     };
 
 
@@ -133,14 +133,14 @@ const EmployeeDetails: React.FC = () => {
 
     useEffect(() => {
         if (id) {
-            api.get(`/api/employees/${id}/checklists`)
+            api.get(`/employees/${id}/checklists`)
                 .then((res) => setChecklists(res.data))
                 .catch((err) => console.error("Error fetching checklists:", err));
         }
     }, [id]);
 
     const fetchEmployeeDetails = async (id: number) => {
-        const response = await api.get(`/api/employees/${id}`);
+        const response = await api.get(`/employees/${id}`);
         return response.data;
     };
 
@@ -272,7 +272,7 @@ const EmployeeDetails: React.FC = () => {
     const deleteLeave = async (leaveId: number) => {
         if (confirm('Are you sure you want to delete this leave?')) {
             try {
-                await api.delete(`/api/employees/${employee?.id}/leaves/${leaveId}`);
+                await api.delete(`/employees/${employee?.id}/leaves/${leaveId}`);
                 if (employee && employee.id) {
                     fetchEmployeeDetails(employee.id);
                 }

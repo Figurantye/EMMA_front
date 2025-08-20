@@ -14,7 +14,7 @@ export default function AddAbsenceModal({ employeeId, onClose, onSuccess }: Prop
 
     const handleSubmit = async () => {
         try {
-            await api.post(`/api/employees/${employeeId}/absences`, {
+            await api.post(`/employees/${employeeId}/absences`, {
                 employee_id: employeeId,
                 date,
                 reason,

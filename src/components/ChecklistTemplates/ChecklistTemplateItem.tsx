@@ -21,7 +21,7 @@ const ChecklistTemplateForm: React.FC<ChecklistTemplateFormProps> = ({ templateI
 
     useEffect(() => {
         if (templateId) {
-            api.get(`/api/checklist-templates/${templateId}`).then(response => {
+            api.get(`/checklist-templates/${templateId}`).then(response => {
                 setTitle(response.data.title);
                 setTasks(response.data.tasks || []);
             });
@@ -58,12 +58,12 @@ const ChecklistTemplateForm: React.FC<ChecklistTemplateFormProps> = ({ templateI
             };
 
             if (templateId) {
-                await api.put(`/api/checklist-templates/${templateId}`, payload);
+                await api.put(`/checklist-templates/${templateId}`, payload);
             } else {
-                await api.post('/api/checklist-templates', payload);
+                await api.post('/checklist-templates', payload);
             }
 
-            navigate('/api/checklist-templates');
+            navigate('/checklist-templates');
         } catch (error) {
             console.error('Error saving template:', error);
         } finally {
