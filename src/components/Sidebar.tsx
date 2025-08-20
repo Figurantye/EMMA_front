@@ -3,7 +3,6 @@ import styles from './Sidebar.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
 import { LogOut } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
 import { logoutUser } from '../services/api';
 
 interface SidebarProps {

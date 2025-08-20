@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import styles from './MainLayout.module.css';
-import clsx from 'clsx';
 import { useAuth } from '../context/AuthContext';
 
 interface MainLayoutProps {

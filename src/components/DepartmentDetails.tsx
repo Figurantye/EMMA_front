@@ -10,7 +10,6 @@ const DepartmentDetails: React.FC = () => {
   const [position, setPosition] = useState<Position | null>(null);
   const [employee, setEmployee] = useState<Employee[]>([]);
   const [positions, setPositions] = useState<Position[]>([]);
-  const [uploading, setUploading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPositionsModalOpen, setIsPositionsModalOpen] = useState(false);
   const [isPositionModalOpen, setIsUpdPositionModalOpen] = useState(false);
@@ -68,7 +67,6 @@ const DepartmentDetails: React.FC = () => {
   };
 
   const handleSaveDepartment = () => {
-    setUploading(true);
     api
       .put(
         `/departments/${department?.id}`,
@@ -79,11 +77,9 @@ const DepartmentDetails: React.FC = () => {
         setIsModalOpen(false);
       })
       .catch((err) => console.error("Erro ao atualizar departamento:", err))
-      .finally(() => setUploading(false));
   };
 
   const handleSavePosition = () => {
-    setUploading(true);
     api
       .post(`/positions/${department?.id}`, position)
       .then((res) => {
@@ -91,10 +87,8 @@ const DepartmentDetails: React.FC = () => {
         setIsModalOpen(false);
       })
       .catch((err) => console.error("Erro ao atualizar departamento:", err))
-      .finally(() => setUploading(false));
   };
   const handleUpdatePosition = () => {
-    setUploading(true);
     api
       .put(`/positions/${position?.id}`, position)
       .then((res) => {
@@ -102,7 +96,6 @@ const DepartmentDetails: React.FC = () => {
         setIsModalOpen(false);
       })
       .catch((err) => console.error("Erro ao atualizar departamento:", err))
-      .finally(() => setUploading(false));
   };
 
   function createModal() {
