@@ -23,7 +23,7 @@ const EmployeeModal: React.FC<EmployeeModalProps> = ({ visible, onClose }) => {
   }, [visible]);
 
   useEffect(() => {
-    api.get('http://localhost:8000/api/positions')
+    api.get('/positions')
       .then(response => setPositions(response.data.data))
       .catch(() => toast.error('Erro ao carregar cargos'));
   }, []);
@@ -46,7 +46,7 @@ const EmployeeModal: React.FC<EmployeeModalProps> = ({ visible, onClose }) => {
       console.log('funcionou: ',employee.employment_status);
       console.log('funcionou: ', employee.first_name);
 
-      await api.post('http://localhost:8000/api/employees', employee);
+      await api.post('/employees', employee);
 
       toast.success('Funcionário cadastrado com sucesso!');
       onClose();

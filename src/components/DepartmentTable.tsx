@@ -10,7 +10,7 @@ const DepartmentTable: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.get('http://localhost:8000/api/departments')
+    api.get('/departments')
       .then(response => {
         setDepartments(response.data.data);
       })

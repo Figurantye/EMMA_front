@@ -3,7 +3,7 @@ import styles from './Auth.module.css';
 
 const Login: React.FC = () => {
     const handleGoogleLogin = () => {
-        window.location.href = 'http://localhost:8000/auth/google';
+        window.location.href = 'http://emmaback-production.up.railway.app/auth/google';
     };
 
     return (

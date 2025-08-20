@@ -19,7 +19,7 @@ const DepartmentDetails: React.FC = () => {
 
   const deleteDepartment = () => {
     if (window.confirm('Tem certeza que deseja deletar este funcionário?')) {
-      api.delete('http://localhost:8000/api/departments/' + id)
+      api.delete('/departments/' + id)
         .then(() => {
           navigate('/departments'); // Redireciona automaticamente após apagar
         })
@@ -29,7 +29,7 @@ const DepartmentDetails: React.FC = () => {
 
   useEffect(() => {
     api
-      .get(`http://localhost:8000/api/departments/${id}`)
+      .get(`/departments/${id}`)
       .then((res) => {
         setDepartment(res.data.data);
       })
@@ -37,7 +37,7 @@ const DepartmentDetails: React.FC = () => {
   }, [id]);
   useEffect(() => {
     api
-      .get(`http://localhost:8000/api/employees`)
+      .get(`/employees`)
       .then((res) => {
         if (employee) {
           setEmployee(res.data.data);
@@ -47,7 +47,7 @@ const DepartmentDetails: React.FC = () => {
   }, [id]);
   useEffect(() => {
     api
-      .get(`http://localhost:8000/api/positions`)
+      .get(`/positions`)
       .then((res) => {
         if (positions) {
           setPositions(res.data.data);
@@ -71,7 +71,7 @@ const DepartmentDetails: React.FC = () => {
     setUploading(true);
     api
       .put(
-        `http://localhost:8000/api/departments/${department?.id}`,
+        `/departments/${department?.id}`,
         department
       )
       .then((res) => {
@@ -85,7 +85,7 @@ const DepartmentDetails: React.FC = () => {
   const handleSavePosition = () => {
     setUploading(true);
     api
-      .post(`http://localhost:8000/api/positions/${department?.id}`, position)
+      .post(`/positions/${department?.id}`, position)
       .then((res) => {
         console.log("Departamento atualizado com sucesso:", res.data);
         setIsModalOpen(false);
@@ -96,7 +96,7 @@ const DepartmentDetails: React.FC = () => {
   const handleUpdatePosition = () => {
     setUploading(true);
     api
-      .put(`http://localhost:8000/api/positions/${position?.id}`, position)
+      .put(`/positions/${position?.id}`, position)
       .then((res) => {
         console.log("Departamento atualizado com sucesso:", res.data);
         setIsModalOpen(false);

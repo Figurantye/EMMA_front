@@ -61,7 +61,7 @@ const EmployeeDetails: React.FC = () => {
 
     const deleteEmployee = () => {
         if (window.confirm('Are you sure you want to delete this employee?')) {
-            api.delete('http://localhost:8000/api/employees/' + id)
+            api.delete('/employees/' + id)
                 .then(() => {
                     navigate('/employees');
                 })
@@ -123,7 +123,7 @@ const EmployeeDetails: React.FC = () => {
 
 
     useEffect(() => {
-        api.get(`http://localhost:8000/api/employees/${id}`)
+        api.get(`/employees/${id}`)
             .then(res => {
                 setEmployee(res.data.data);
                 setDocuments(res.data.data.documents || []);
@@ -176,7 +176,7 @@ const EmployeeDetails: React.FC = () => {
 
         setUploading(true);
 
-        api.post(`http://localhost:8000/api/employees/${id}/documents`, formData, {
+        api.post(`/employees/${id}/documents`, formData, {
             headers: { 'Content-Type': 'multipart/form-data' }
         })
             .then(res => {
@@ -198,13 +198,13 @@ const EmployeeDetails: React.FC = () => {
     };
 
     const handleSave = () => {
-        api.put(`http://localhost:8000/api/employees/${id}`, employee)
+        api.put(`/employees/${id}`, employee)
             .then(() => setIsModalOpen(false))
             .catch(err => console.error("Error saving employee:", err));
     };
 
     const deleteTag = () => {
-        api.delete('http://localhost:8000/api/tags/' + tagForm.id)
+        api.delete('/tags/' + tagForm.id)
             .then(() => {
                 setEmployee(prev => prev ? {
                     ...prev,
@@ -241,7 +241,7 @@ const EmployeeDetails: React.FC = () => {
             employee_id: employee.id,
         };
 
-        api.post(`http://localhost:8000/api/employees/${employee.id}/tags`, newTag)
+        api.post(`/employees/${employee.id}/tags`, newTag)
             .then(res => {
                 const createdTag = res.data.data;
                 setEmployee(prev => prev ? {
@@ -257,7 +257,7 @@ const EmployeeDetails: React.FC = () => {
     };
 
     const handleUpdate = () => {
-        api.put(`http://localhost:8000/api/tags/${tagForm.id}`, tagForm)
+        api.put(`/tags/${tagForm.id}`, tagForm)
             .then(res => {
                 if (employee) {
                     const updatedTags = (employee.tags || []).map(t =>
@@ -496,7 +496,7 @@ const EmployeeDetails: React.FC = () => {
                     <ul style={{ marginBottom: 8 }}>
                         {documents.map(doc => (
                             <li key={doc.id}>
-                                <a href={`http://localhost:8000/storage/${doc.path}`} target="_blank" rel="noreferrer" style={{ color: '#4a90e2', textDecoration: 'underline' }}>
+                                <a href={`http://emmaback-production.up.railway.app/storage/${doc.path}`} target="_blank" rel="noreferrer" style={{ color: '#4a90e2', textDecoration: 'underline' }}>
                                     {doc.name}
                                 </a>
                             </li>
