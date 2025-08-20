@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styles from './EmployeeDetails.module.css';
-import type { ChecklistTemplate, Document, Employee, EmployeeChecklist, Tag } from '../../types';
+import type { ChecklistTemplate, Document, Employee, EmployeeChecklist, Tag } from '../types';
 import AddAbsenceModal from './modals/AddAbsenceModal';
 import AddAttendanceModal from './modals/AddAttendanceModal';
 import AddSalaryModal from './modals/AddSalaryModal';
 import AddReportModal from './modals/AddReportModal';
 import AddLeaveModal from './modals/AddLeaveModal';
 import api from '../services/api';
-import { FaCalendarAlt, FaClipboard, FaDocker, FaMoneyBill, FaPaperclip, FaTag } from 'react-icons/fa';
+import { FaCalendarAlt, FaClipboard, FaMoneyBill, FaPaperclip, FaTag } from 'react-icons/fa';
 import ChecklistModal from './modals/ChecklistModal';
-import type { DetailedEmployeeChecklist, SeveranceData } from '../types';
+import type { DetailedEmployeeChecklist } from '../types';
 import TerminationModal from './modals/TerminationModal';
 import LoadingScreen from './LoadingScreen';
 const EmployeeDetails: React.FC = () => {
@@ -32,8 +32,6 @@ const EmployeeDetails: React.FC = () => {
     const [detailedChecklist, setDetailedChecklist] = useState<DetailedEmployeeChecklist | null>(null);
     const [templates, setTemplates] = useState<ChecklistTemplate[]>([]);
     const [selectedTemplateId, setSelectedTemplateId] = useState('');
-    const [severance, setSeverance] = useState<SeveranceData | null>(null);
-    const [loading, setLoading] = useState(false);
     const [terminationModalOpen, setTerminationModalOpen] = useState(false);
 
     const navigate = useNavigate();
@@ -291,7 +289,7 @@ const EmployeeDetails: React.FC = () => {
     return (
         <div className={styles.detailsContainer} style={{ maxWidth: 900, margin: '0 auto', padding: '2rem', background: '#fff', borderRadius: 16, boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}>
             <header style={{ borderBottom: '2px solid #eaeaea', marginBottom: 32, paddingBottom: 16, display: 'flex', alignItems: 'center', gap: 16 }}>
-                <img src={employee.avatar_url || '/vite.svg'} alt="Avatar" style={{ width: 64, height: 64, borderRadius: '50%', objectFit: 'cover', border: '2px solid #eaeaea' }} />
+                <img src={'/vite.svg'} alt="Avatar" style={{ width: 64, height: 64, borderRadius: '50%', objectFit: 'cover', border: '2px solid #eaeaea' }} />
                 <div>
                     <h2 style={{ margin: 0, fontSize: 28, fontWeight: 700 }}>{employee.first_name} {employee.last_name} <span style={{ fontWeight: 400, color: '#888', fontSize: 18 }}>- {employee.position?.title}</span></h2>
                     <span style={{ color: '#4a90e2', fontWeight: 500 }}>{employee.employment_status === 'active' ? 'Active' : employee.employment_status === 'on_leave' ? 'On Leave' : 'Terminated'}</span>
