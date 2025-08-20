@@ -1,0 +1,400 @@
+/* Container geral */
+.container {
+  padding: 2.5rem 2rem;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Header da lista */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+/* Botão de criar novo */
+.createButton,
+.button {
+  background-color: #2c7be5;
+  color: #fff;
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgb(44 123 229 / 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.createButton:hover,
+.button:hover {
+  background-color: #1a5bb8;
+  box-shadow: 0 6px 15px rgb(26 91 184 / 0.5);
+}
+
+/* Lista de templates */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.05);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.item:hover {
+  box-shadow: 0 8px 28px rgb(44 123 229 / 0.12);
+}
+
+.item > div:first-child strong {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #222;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.item > div:first-child p {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Ações do item (editar, excluir) */
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.editButton,
+.deleteButton {
+  padding: 0.5rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.editButton {
+  background-color: #20c997;
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editButton:hover {
+  background-color: #178f6d;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #b02a37;
+}
+
+/* Formulário geral */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  max-width: 720px;
+  margin: 0 auto 3rem auto;
+  padding: 2.5rem 3rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+  transition: box-shadow 0.3s ease;
+}
+
+.form:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Labels */
+.label,
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-weight: 600;
+  color: #444;
+  font-size: 1rem;
+}
+
+/* Inputs e textarea */
+.input,
+.textarea,
+.form input[type="text"],
+.form textarea {
+  padding: 0.75rem 1rem;
+  border: 1.8px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  resize: vertical;
+  font-family: inherit;
+  color: #333;
+}
+
+.input:focus,
+.textarea:focus,
+.form input[type="text"]:focus,
+.form textarea:focus {
+  border-color: #2c7be5;
+  box-shadow: 0 0 6px rgba(44, 123, 229, 0.4);
+  outline: none;
+}
+
+/* Seção dos itens */
+.itemsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.itemsSection h4,
+.taskList h3 {
+  margin: 0 0 0.8rem 0;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #222;
+}
+
+/* Linha de item do checklist */
+.itemRow,
+.taskItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fefefe;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.itemRow:hover,
+.taskItem:hover {
+  box-shadow: 0 6px 18px rgba(44, 123, 229, 0.15);
+}
+
+/* Input do item */
+.itemRow input,
+.taskItem input[type="text"] {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border: 1.6px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.itemRow input:focus,
+.taskItem input[type="text"]:focus {
+  border-color: #2c7be5;
+  outline: none;
+}
+
+/* Botões dentro do form de itens */
+.removeButton,
+.taskItem button {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 3px 8px rgb(220 53 69 / 0.4);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
+}
+
+.removeButton:hover,
+.taskItem button:hover {
+  background: #b02a37;
+  box-shadow: 0 5px 15px rgb(176 42 55 / 0.55);
+}
+
+/* Botão adicionar item/tarefa */
+.addButton,
+.form button[type="button"] {
+  background: #20c997;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 3px 8px rgb(32 201 151 / 0.4);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
+}
+
+.addButton:hover,
+.form button[type="button"]:hover {
+  background: #178f6d;
+  box-shadow: 0 5px 15px rgb(23 143 109 / 0.55);
+}
+
+/* Botão submit */
+.submitButton,
+.form button[type="submit"] {
+  background-color: #2c7be5;
+  color: white;
+  padding: 1rem 1.8rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 5px 15px rgba(44, 123, 229, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 1rem;
+  user-select: none;
+}
+
+.submitButton:hover,
+.form button[type="submit"]:hover {
+  background-color: #1a5bb8;
+  box-shadow: 0 7px 20px rgba(26, 91, 184, 0.6);
+}
+
+/* Acessibilidade */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none !important;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1024px) {
+  .container {
+    padding: 2rem 1.5rem;
+  }
+
+  .form {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .header h2 {
+    font-size: 1.8rem;
+  }
+
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .actions {
+    align-self: stretch;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .editButton,
+  .deleteButton {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .form {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .itemRow,
+  .taskItem {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .itemRow input,
+  .taskItem input[type="text"] {
+    width: 100%;
+  }
+
+  .addButton,
+  .removeButton,
+  .form button[type="button"],
+  .form button[type="submit"] {
+    width: 100%;
+    text-align: center;
+  }
+
+  .submitButton,
+  .form button[type="submit"] {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.2rem 1rem;
+  }
+
+  .header h2 {
+    font-size: 1.5rem;
+  }
+
+  .form {
+    padding: 1.2rem;
+    gap: 1.2rem;
+  }
+
+  .item > div:first-child strong {
+    font-size: 1.1rem;
+  }
+
+  .item > div:first-child p {
+    font-size: 0.95rem;
+  }
+
+  .submitButton,
+  .form button[type="submit"] {
+    font-size: 1rem;
+  }
+}

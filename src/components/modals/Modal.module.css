@@ -1,0 +1,349 @@
+/* Modal.module.css */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn 0.25s ease-in-out;
+}
+
+.modalContent {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    padding: 2rem;
+    position: relative;
+    z-index: 1001;
+    animation: slideIn 0.25s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.dark .modalContent {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.closeButton {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.2s ease-in-out;
+}
+
+.closeButton:hover {
+    color: #000;
+}
+
+.dark .closeButton {
+    color: #aaa;
+}
+
+.dark .closeButton:hover {
+    color: #fff;
+}
+
+.content {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* Scroll customizado */
+.content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.4);
+    border-radius: 4px;
+}
+
+.dark .content::-webkit-scrollbar-thumb {
+    background-color: rgba(200, 200, 200, 0.3);
+}
+
+.footer {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 1rem;
+}
+.input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+    background: #fafbfc;
+    color: #222;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.input:focus,
+select:focus,
+textarea:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px #4a90e230;
+    background: #fff;
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%234a90e2" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 1.2em;
+    padding-right: 2.5em;
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+    color: #444;
+}
+
+.modalContent h3, .modalContent h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: #4a90e2;
+    letter-spacing: 0.5px;
+}
+
+.modalContent input[type="color"] {
+    width: 48px;
+    height: 32px;
+    border: none;
+    background: none;
+    margin-bottom: 0.7rem;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .modalContent {
+        padding: 1rem;
+        max-width: 98vw;
+    }
+    .input, select, textarea {
+        font-size: 0.98rem;
+        padding: 0.6rem 0.8rem;
+    }
+}
+
+
+.button {
+    padding: 1.1rem 2.2rem;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.18s, box-shadow 0.18s, color 0.18s, transform 0.12s;
+    font-weight: 700;
+    box-shadow: 0 3px 12px rgba(74, 144, 226, 0.10);
+    outline: none;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+.button:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 1px 4px rgba(74, 144, 226, 0.10);
+}
+
+.button:focus {
+    box-shadow: 0 0 0 3px #4a90e240;
+    z-index: 2;
+}
+
+
+.buttonPrimary {
+    background: linear-gradient(90deg, #4a90e2 60%, #357ab8 100%);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.13);
+    border: none;
+}
+
+.buttonPrimary:hover, .buttonPrimary:focus {
+    background: linear-gradient(90deg, #357ab8 60%, #4a90e2 100%);
+    color: #fff;
+}
+
+
+.buttonSecondary {
+    background: #f3f3f3;
+    color: #444;
+    border: 1.5px solid #e0e0e0;
+}
+
+.buttonSecondary:hover, .buttonSecondary:focus {
+    background: #e0e0e0;
+    color: #222;
+}
+
+
+.dark .buttonSecondary {
+    background: #444;
+    color: #eee;
+    border: 1.5px solid #666;
+}
+
+.dark .buttonSecondary:hover, .dark .buttonSecondary:focus {
+    background: #555;
+    color: #fff;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .modalContent {
+        padding: 1.5rem;
+        max-height: 90vh;
+    }
+
+    .title {
+        font-size: 1.3rem;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .button {
+        width: 100%;
+        font-size: 1.08rem;
+        padding: 1rem 0.8rem;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.itemList {
+  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.progressContainer {
+    margin-bottom: 16px;
+}
+
+.progressBarBackground {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.progressBarFill {
+    background-color: #4caf50;
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+}
+
+.progressText {
+    font-size: 14px;
+    margin-top: 4px;
+    text-align: right;
+    color: #555;
+}
+
+.itemLabel {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.checkbox {
+    margin-top: 4px;
+    transform: scale(1.2);
+}
+
+.itemDescription {
+    margin-top: 4px;
+    font-size: 14px;
+    color: #666;
+}
+
+.calculation {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+}

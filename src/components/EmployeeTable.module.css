@@ -1,0 +1,214 @@
+.tableWrapper {
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  min-width: 800px;
+}
+
+.table th,
+.table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+.table th {
+  background-color: #7834fc;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.table tr:hover {
+  background-color: #f9f9f9;
+  transition: background-color 0.2s ease;
+}
+
+.table td:last-child {
+  display: flex;
+  gap: 8px;
+}
+
+.viewButton {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  background-color: #7834fc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.viewButton:hover {
+  background-color: #7834fc;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.filters input,
+.filters select {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVO: cards estilo mobile */
+@media (max-width: 768px) {
+  .table {
+    display: block;
+    width: 100%;
+    min-width: unset;
+    border: none;
+    background: transparent;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .table tr {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+  }
+
+  .table td {
+    display: block;
+    width: 100%;
+    padding: 9px 12px 12px 120px;
+    border: none;
+    position: relative;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    word-break: break-word;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 80px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .table td:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    margin-top: 12px;
+    position: relative;
+  }
+  
+  .table td:last-child::before {
+    content: none; /* Remover label “AÇÕES” */
+  }
+  
+
+  .viewButton {
+    width: 100%;
+    text-align: center;
+    padding: 8px;
+  }
+}
+
+:root {
+  --purple: #7834fc;
+  --bg-light: #ffffff;
+  --bg-dark: #1e1e1e;
+  --text-light: #1c1c1c;
+  --text-dark: #f1f1f1;
+}
+
+body.dark {
+  --bg-light: #2a2a2a;
+  --text-light: #f1f1f1;
+}
+
+/* Filtros aprimorados */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--bg-light);
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.filters input,
+.filters select {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  background: white;
+  transition: border 0.2s;
+}
+
+.filters input:focus-visible,
+.filters select:focus-visible {
+  border-color: var(--purple);
+  outline: none;
+}
+
+.container {
+  padding: 1rem 0;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+/* Dark mode support */
+body.dark .filters {
+  background: var(--bg-dark);
+}
+
+body.dark .filters input,
+body.dark .filters select {
+  background: #1f1f1f;
+  color: var(--text-dark);
+  border: 1px solid #444;
+}
